@@ -50,7 +50,7 @@ certificates:
 indexer:
   ## @param indexer.replicas number of replicas used in statefulset.
   ##
-  replicas: 3
+  replicas: 1
   ## @param indexer.annotations additional annotations set on statefulset.
   ##
   annotations: {}
@@ -214,8 +214,8 @@ indexer:
   ## @param indexer.storageSize Defines the size of the pvc used by the statefulset.
   ## @param indexer.storageClass Defines the storageClass of the pvc used by the statefulset.
   ##
-  storageSize: 50Gi
-  storageClass: null
+  storageSize: 10Gi
+  storageclass: gp2
   ## Configuration of the credentials for the indexer.
   ## @param indexer.cred.existingSecret Name of the existingSecret which holds the key "INDEXER_PASSWORD".
   ## @param indexer.cred.password Value of the password for the admin user.
@@ -362,10 +362,10 @@ dashboard:
   ## @param dashboard.ingress.enabled Enable ingress record generation for dashboard.
   ##
   ingress:
-    enabled: false
+    enabled: true
     ## @param dashboard.ingress.className Defines the ingress class name used.
     ##
-    className: ""
+    className: "nginx"
     ## @param dashboard.ingress.tls Allows to use specific tls certificate.
     ## Ref: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
     ## Example:
@@ -382,7 +382,7 @@ dashboard:
     ## @param dashboard.ingress.host Defines the hostname and URL under which the dashboard gets
     ## exposed.
     ##
-    host: "wazuh.example.com"
+    host: "wazuh.orchida-einvoice.com"
 ## @section wazuh configuration of the wazuh core component.
 ##
 wazuh:
@@ -560,8 +560,8 @@ wazuh:
     ## @param wazuh.master.storageClass Defines the storageClass of the pvc used by the statefulset.
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner.
     ##
-    storageSize: 50Gi
-    storageClass: null
+    storageSize: 10Gi
+    storageclass: gp2
     ## @param wazuh.master.conf Config for the wazuh master, do not change!
     ##
     conf: |
@@ -574,7 +574,7 @@ wazuh:
   worker:
     ## @param wazuh.worker.replicas number of replicas used in statefulset.
     ##
-    replicas: 2
+    replicas: 1
     ## @param wazuh.worker.annotations additional annotations set on deployment.
     ##
     annotations: {}
@@ -646,8 +646,8 @@ wazuh:
     ## @param wazuh.worker.storageClass Defines the storageClass of the pvc used by the statefulset.
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner.
     ##
-    storageSize: 50Gi
-    storageClass: null
+    storageSize: 10Gi
+    storageclass: gp2
     ## @param wazuh.worker.conf Config for the wazuh worker, do not change!
     ##
     conf: |
