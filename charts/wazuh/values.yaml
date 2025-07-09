@@ -373,7 +373,10 @@ dashboard:
     ##    hosts:
     ##      - wazuh.example.com
     ##
-    tls: []
+    tls: 
+    - secretName: wazuh-tls
+      hosts:
+        - wazuh.orchida-einvoice.com 
     ## @param dashboard.ingress.annotations Used for detailed configuration.
     ## Ref: https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/
     ## Eg: cert-manager.io/cluster-issuer: letsencrypt-prod
