@@ -214,7 +214,7 @@ indexer:
   ## @param indexer.storageSize Defines the size of the pvc used by the statefulset.
   ## @param indexer.storageClass Defines the storageClass of the pvc used by the statefulset.
   ##
-  storageSize: 10Gi
+  storageSize: 25Gi
   storageclass: gp2
   ## Configuration of the credentials for the indexer.
   ## @param indexer.cred.existingSecret Name of the existingSecret which holds the key "INDEXER_PASSWORD".
@@ -560,7 +560,7 @@ wazuh:
     ## @param wazuh.master.storageClass Defines the storageClass of the pvc used by the statefulset.
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner.
     ##
-    storageSize: 10Gi
+    storageSize: 25Gi
     storageclass: gp2
     ## @param wazuh.master.conf Config for the wazuh master, do not change!
     ##
@@ -646,7 +646,7 @@ wazuh:
     ## @param wazuh.worker.storageClass Defines the storageClass of the pvc used by the statefulset.
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner.
     ##
-    storageSize: 10Gi
+    storageSize: 25Gi
     storageclass: gp2
     ## @param wazuh.worker.conf Config for the wazuh worker, do not change!
     ##
